@@ -1,11 +1,13 @@
 li{
+  display: block;
   border: 1px solid #ebebeb;
   padding: 13px;
   margin: 10px 0;
   font-weight: 600;
   box-shadow: 0 3px 2px -2px rgb(0 0 0 / 0.13);
   /* box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2); */
-
+  width: 620px;
+  box-sizing: border-box;
 }
 
 ul{
@@ -31,4 +33,8 @@ h1:after{
   height: 2px;
   margin-top: 10px;
   content: " ";
+}
+
+.question-1{
+  margin: 30px 15px;
 }
