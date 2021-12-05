@@ -16,7 +16,7 @@ ul{
 
 .container{
   margin: 0 auto;
-  width: 60%;
+  width: 50%;
 }
 
 h1{
@@ -26,7 +26,7 @@ h1{
 }
 
 h1:after{
-  background-color: #00ab36;
+  background-color: #00ab78;
   margin: 10px 0 0;
   display: block;
   width: 120px;
@@ -38,3 +38,4 @@ h1:after{
 .question-1{
   margin: 30px 15px;
 }
+
