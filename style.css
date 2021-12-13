@@ -35,7 +35,57 @@ h1:after{
   content: " ";
 }
 
+h2{
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding-bottom: 3px;
+}
+
+h2:after{
+  background-color: #FF5028;
+  display: block;
+  margin-top: 3px;
+  width: 60px;
+  height: 3px;
+  content: " ";
+}
+
+h3{
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding-bottom: 3px;
+}
+
+h3:after{
+  background-color: #297DFE;
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-top: 3px;
+  content: " ";
+}
+
+.answer{
+  font: 16px;
+}
 .question-1{
   margin: 30px 15px;
 }
 
+.oneClick {
+  pointer-events: none;
+}
+
+.incorrect_answer {
+  background-color: #FF5028;
+  color: #FFFFFF;
+}
+
+.correct_answer {
+  background-color: #297DFE;
+  color: #FFFFFF;
+}

@@ -26,34 +26,136 @@ let option = [["たかなわ", "こうわ", "たかわ"],//問１
 ["こぐれ", "こしゃく", "こばく"]//問１０
 ]
 
+//正解の配列
+let answerOption = ["たかなわ", "かめいど", "こうじまち", "おなりもん", "とどろき", "しゃくじい", "ぞうしき", "おかちまち", "ししぼね", "こぐれ"]
+
+
 //HTML書き換え
 let questionArea = document.getElementById('question_area');
-//h1タグ 番号 画像
+//h1タグ 番号 画像 選択肢
 for (let i = 0; i < 10; i++) {
 
   let question = `<h1> ${i+1}.この地名はなんと読む？</h1>`
-                +`<div class = "image-container">`
-                + `<img src = ${img[i]}></div>`
-                +`<ul>
-                   <li>${option[i][0]}</li>
-                   <li>${option[i][1]}</li>
-                   <li>${option[i][2]}</li>
-                  </ul>`
-                
-  questionArea.insertAdjacentHTML("beforeEnd",question);
-}
+  +`<div class = "image-container">`
+  + `<img src = ${img[i]}></div>`
+  +`<ul>
+  <li id = "selection${i}_0" class = "selections" onclick = "clickNum(${i}, 0)">${option[i][0]}</li>
+  <li id = "selection${i}_1" class = "selections" onclick = "clickNum(${i}, 1)">${option[i][1]}</li>
+  <li id = "selection${i}_2" class = "selections" onclick = "clickNum(${i}, 2)">${option[i][2]}</li>
+  </ul>`
+  +`<div id = "answerBox${i}"></div>`
+  
+  //  document.write(question);
+  question_area.insertAdjacentHTML('beforebegin', question);
+
+};
+
+  let clickNum = function (quizNum, num) {
+    const clickedSelection = document.getElementById(`selection${quizNum}_${num}`);
+    clickedSelection.className = "incorrect_answer";
+    // clickedSelection.style.backgroundColor = "#FF5028";
+    // clickedSelection.style.color = "#FFFFFF";
+    console.log("こんばんわ");
+    
+    let answerBox = document.getElementById(`answerBox${quizNum}`);
+
+    if( num === 0 ){
+      const el = document.createElement("h3");
+      el.setAttribute("id", "answerBox");
+      el.textContent = "正解!";
+      answerBox.appendChild(el);
+      const ol = document.createElement("div");
+      ol.setAttribute("id", "answerInstruction");
+      ol.textContent="正解は「"+`${answerOption[quizNum]}`+"」です！";
+      ol.className = "answer";
+      answerBox.appendChild(ol);
+    }else{
+      const ul = document.createElement("h2");
+      ul.setAttribute("id", "falseBox");
+      ul.textContent = "不正解！";
+      answerBox.appendChild(ul);
+      const ol = document.createElement("div");
+      ol.setAttribute("id", "answerInstruction");
+      ol.textContent="正解は「"+`${answerOption[quizNum]}`+"」です！";
+      answerBox.appendChild(ol);
+    
+    }
+    // const ol = document.createElement("div");
+    // ol.setAttribute("id", "answerInstruction");
+    // ol.textcoment="正解は"+`${option[i][0]}`+"です！";
+    // document.body.appendChild(ol);
+  }    
+// };
 
 
+// window.onload 
+
+//ボタンの色変え
+// let correct = document.getElementById("correctselection");
+
+// let incorrect = document.getElementById("incorrectselection1");
+
+// let incorrect2 = document.getElementById("incorrectselection2");
+
+// correct.onclick = function() {
+//   correct.style.backgroundColor = "#297DFE";
+//   correct.style.color = "#FFFFFF";
+//   correct.classList.add('oneClick');
+//   incorrect.classList.add("oneClick");
+//   incorrect2.classList.add("oneClick");  
+// }
+
+// incorrect2.onclick = function() {
+//   incorrect2.style.backgroundColor = "#FF5028"
+//   incorrect2.style.color = "#FFFFFF";
+//   correct.classList.add('oneClick');
+//   incorrect.classList.add("oneClick");
+//   incorrect2.classList.add("oneClick");
+// }
 
 
+//正解 不正解 表示
+// if( num === 0 ){
+//   const el = document.createElement("h1");  
+//   el.setAttribute("id", "answerBox");
+//   el.textContent = "正解!";
+//   document.body.appendChild(el);
+// }else{
+//   const ul = document.createElement("h1");  
+//   ul.setAttribute("id", "falseBox");
+//   ul.textContent = "不正解！";
+// }
+// const ol = document.createElement("div");
+// ol.setAttribute("id", "answerInstruction");
+// ol.textcoment="正解は"+`${option[i][0]}`+"です！";
+// document.body.appendChild(ol);
 
+//  let correctselect = function(){
+  //   correct.style.backgroundColor = "#297DFE";
+  //   correct.style.color = "#FFFFFF"
+  //   console.log("こんにちはい");
+  // }
 
-
+// if(correct.onclick){
+//   correct.style.backgroundColor = "#297DFE";  
+//   correct.style.color = "#FFFFFF"
+//   console.log(correct);
+// }else if(incorrect.onclick){
+//   incorrect.style.backgroundColor = "#FF5028"  
+//   incorrect.style.color = "#FFFFFF"
+//   console.log(incorrect);
+// }else if(incorrect2.onclick){
+//   incorrect2.style.backgroundColor = "#FF5028"  
+//   incorrect2.style.color = "#FFFFFF"
+//   console.log(incorrect2);
+// }
 
 // let questionNumber = '';
 
 // for (let i = 0; i < 10; i++){
-//   questionNumber = questionNumber + i;
+//   questionNumber = questionNumber + i;  
 
 //   console.log(questionNumber);
 // }
+
+// //正解 不正解表示
