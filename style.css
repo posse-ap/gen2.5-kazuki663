@@ -14,22 +14,6 @@ header{
   margin:  10px;
 }
 
-li{
-  display: block;
-  border: 1px solid #ebebeb;
-  padding: 13px;
-  margin: 10px 0;
-  font-weight: 600;
-  box-shadow: 0 3px 2px -2px rgb(0 0 0 / 0.13);
-  /* box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2); */
-  /* width: 620px; */
-  box-sizing: border-box;
-}
-
-ul{
-  list-style: none;
-}
-
 .container{
   margin: 0 auto;
   width: 630px;
@@ -52,21 +36,20 @@ h1:after{
   content: " ";
 }
 
-h2{
-  font-size: 16px;
-  font-weight: 600;
-  display: inline-block;
-  margin: 0 0 10px;
-  padding-bottom: 3px;
+ul{
+  list-style: none;
 }
 
-h2:after{
-  background-color: #FF5028;
+li{
   display: block;
-  margin-top: 3px;
-  width: 60px;
-  height: 3px;
-  content: " ";
+  border: 1px solid #ebebeb;
+  padding: 13px;
+  margin: 10px 0;
+  font-weight: 600;
+  box-shadow: 0 3px 2px -2px rgb(0 0 0 / 0.13);
+  /* box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2); */
+  /* width: 620px; */
+  box-sizing: border-box;
 }
 
 h3{
@@ -86,6 +69,24 @@ h3:after{
   margin-top: 3px;
   content: " ";
 }
+
+h2{
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  margin: 0 0 10px;
+  padding-bottom: 3px;
+}
+
+h2:after{
+  background-color: #FF5028;
+  display: block;
+  margin-top: 3px;
+  width: 60px;
+  height: 3px;
+  content: " ";
+}
+
 
 /* .answerBox{
   padding: 17px;
