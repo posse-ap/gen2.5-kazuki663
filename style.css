@@ -1,3 +1,19 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  height: 60px;
+  /* margin: 0 10px; */
+  width: 630px;
+  background-color: #ebebeb;
+  /* padding: 0 10px; */
+}
+
+.headerImg {
+  margin:  10px;
+}
+
 li{
   display: block;
   border: 1px solid #ebebeb;
@@ -6,7 +22,7 @@ li{
   font-weight: 600;
   box-shadow: 0 3px 2px -2px rgb(0 0 0 / 0.13);
   /* box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2); */
-  width: 620px;
+  /* width: 620px; */
   box-sizing: border-box;
 }
 
@@ -16,10 +32,11 @@ ul{
 
 .container{
   margin: 0 auto;
-  width: 50%;
+  width: 630px;
 }
 
 h1{
+padding-top: 60px;
   font-size: 17px;
   font-weight: 600;
   display: inline-block;
@@ -39,7 +56,7 @@ h2{
   font-size: 16px;
   font-weight: 600;
   display: inline-block;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
   padding-bottom: 3px;
 }
 
@@ -56,6 +73,7 @@ h3{
   font-size: 16px;
   font-weight: 600;
   display: inline-block;
+  margin-top: 0;
   margin-bottom: 10px;
   padding-bottom: 3px;
 }
@@ -69,8 +87,18 @@ h3:after{
   content: " ";
 }
 
+/* .answerBox{
+  padding: 17px;
+} */
+.answerDiv{
+  background-color: #F5F5F5;
+  /* width: 620px; */
+  padding: 17px;
+}
+
 .answer{
   font: 16px;
+  font-weight: 300;
 }
 .question-1{
   margin: 30px 15px;
@@ -89,3 +117,4 @@ h3:after{
   background-color: #297DFE;
   color: #FFFFFF;
 }
+

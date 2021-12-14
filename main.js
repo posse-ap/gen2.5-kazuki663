@@ -43,7 +43,9 @@ for (let i = 0; i < 10; i++) {
   <li id = "selection${i}_1" class = "selections" onclick = "clickNum(${i}, 1)">${option[i][1]}</li>
   <li id = "selection${i}_2" class = "selections" onclick = "clickNum(${i}, 2)">${option[i][2]}</li>
   </ul>`
-  +`<div id = "answerBox${i}"></div>`
+  +`<div id ="answerBox${i}" class="answerBox" name="answerBox"></div>`
+
+
   
   //  document.write(question);
   question_area.insertAdjacentHTML('beforebegin', question);
@@ -53,33 +55,43 @@ for (let i = 0; i < 10; i++) {
   let clickNum = function (quizNum, num) {
     const clickedSelection = document.getElementById(`selection${quizNum}_${num}`);
     clickedSelection.className = "incorrect_answer";
+    const answerClick = document.getElementById(`selection${quizNum}_0`);
+    answerClick.className = "correct_answer";
     // clickedSelection.style.backgroundColor = "#FF5028";
     // clickedSelection.style.color = "#FFFFFF";
     console.log("こんばんわ");
     
     let answerBox = document.getElementById(`answerBox${quizNum}`);
-
+    
+    const answerDiv = document.createElement("div");
+    answerDiv.className = "answerDiv";
+    answerBox.appendChild(answerDiv);
+    
     if( num === 0 ){
       const el = document.createElement("h3");
       el.setAttribute("id", "answerBox");
       el.textContent = "正解!";
-      answerBox.appendChild(el);
+      answerDiv.appendChild(el);
       const ol = document.createElement("div");
       ol.setAttribute("id", "answerInstruction");
       ol.textContent="正解は「"+`${answerOption[quizNum]}`+"」です！";
       ol.className = "answer";
-      answerBox.appendChild(ol);
+      answerDiv.appendChild(ol);
     }else{
       const ul = document.createElement("h2");
       ul.setAttribute("id", "falseBox");
       ul.textContent = "不正解！";
-      answerBox.appendChild(ul);
+      answerDiv.appendChild(ul);
       const ol = document.createElement("div");
       ol.setAttribute("id", "answerInstruction");
       ol.textContent="正解は「"+`${answerOption[quizNum]}`+"」です！";
-      answerBox.appendChild(ol);
-    
+      answerDiv.appendChild(ol);
     }
+
+    for(let i = 0; i < 3; i++){
+      document.getElementById(`selection${quizNum}_${i}`).classList.add('oneClick');
+    }
+
     // const ol = document.createElement("div");
     // ol.setAttribute("id", "answerInstruction");
     // ol.textcoment="正解は"+`${option[i][0]}`+"です！";
