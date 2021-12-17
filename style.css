@@ -6,8 +6,10 @@ header{
   height: 60px;
   /* margin: 0 10px; */
   width: 630px;
-  background-color: #ebebeb;
+  background-color: #FFFFFF;
   /* padding: 0 10px; */
+  /* box-shadow: 0 0 2px 0 rgb(0, 0, 0, 8%); */
+  border-bottom: 1px solid rgb(0, 0, 0, 8%);
 }
 
 .headerImg {
@@ -19,8 +21,29 @@ header{
   width: 630px;
 }
 
+h4{
+  padding: 80px 15px 0 ;
+  font-size: 19px;
+}
+
+.kuizy_net{
+  display: flex;
+  align-items: center;
+}
+
+.k{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.kuizy{
+  color: #28ACD8;
+}
+
 h1{
-padding-top: 60px;
+/* padding-top: 60px; */
   font-size: 17px;
   font-weight: 600;
   display: inline-block;
