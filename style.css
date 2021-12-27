@@ -1,0 +1,144 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  height: 60px;
+  /* margin: 0 10px; */
+  width: 630px;
+  background-color: #FFFFFF;
+  /* padding: 0 10px; */
+  /* box-shadow: 0 0 2px 0 rgb(0, 0, 0, 8%); */
+  border-bottom: 1px solid rgb(0, 0, 0, 8%);
+}
+
+.headerImg {
+  margin:  10px;
+}
+
+.container{
+  margin: 0 auto;
+  width: 630px;
+}
+
+h4{
+  padding: 80px 15px 0 ;
+  font-size: 19px;
+}
+
+.kuizy_net{
+  display: flex;
+  align-items: center;
+}
+
+.k{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.kuizy{
+  color: #28ACD8;
+}
+
+h1{
+/* padding-top: 60px; */
+  font-size: 17px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+h1:after{
+  background-color: #00ab78;
+  margin: 10px 0 0;
+  display: block;
+  width: 120px;
+  height: 2px;
+  margin-top: 10px;
+  content: " ";
+}
+
+ul{
+  list-style: none;
+}
+
+li{
+  display: block;
+  border: 1px solid #ebebeb;
+  padding: 13px;
+  margin: 10px 0;
+  font-weight: 600;
+  box-shadow: 0 3px 2px -2px rgb(0 0 0 / 0.13);
+  /* box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2); */
+  /* width: 620px; */
+  box-sizing: border-box;
+}
+
+h3{
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-bottom: 3px;
+}
+
+h3:after{
+  background-color: #297DFE;
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-top: 3px;
+  content: " ";
+}
+
+h2{
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  margin: 0 0 10px;
+  padding-bottom: 3px;
+}
+
+h2:after{
+  background-color: #FF5028;
+  display: block;
+  margin-top: 3px;
+  width: 60px;
+  height: 3px;
+  content: " ";
+}
+
+
+/* .answerBox{
+  padding: 17px;
+} */
+.answerDiv{
+  background-color: #F5F5F5;
+  /* width: 620px; */
+  padding: 17px;
+}
+
+.answer{
+  font: 16px;
+  font-weight: 300;
+}
+.question-1{
+  margin: 30px 15px;
+}
+
+.oneClick {
+  pointer-events: none;
+}
+
+.incorrect_answer {
+  background-color: #FF5028;
+  color: #FFFFFF;
+}
+
+.correct_answer {
+  background-color: #297DFE;
+  color: #FFFFFF;
+}
+
