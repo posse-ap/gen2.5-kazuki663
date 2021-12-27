@@ -37,7 +37,7 @@ for (let i = 0; i < 10; i++) {
 
   let question = `<h1> ${i+1}.この地名はなんと読む？</h1>`
   +`<div class = "image-container">`
-  + `<img src = ${img[i]}></div>`
+  + `<img src = img${i}.jpeg}></div>`
   +`<ul>
   <li id = "selection${i}_0" class = "selections" onclick = "clickNum(${i}, 0)">${option[i][0]}</li>
   <li id = "selection${i}_1" class = "selections" onclick = "clickNum(${i}, 1)">${option[i][1]}</li>
@@ -59,7 +59,7 @@ for (let i = 0; i < 10; i++) {
     answerClick.className = "correct_answer";
     // clickedSelection.style.backgroundColor = "#FF5028";
     // clickedSelection.style.color = "#FFFFFF";
-    console.log("こんばんわ");
+    // console.log("こんばんわ");
     
     let answerBox = document.getElementById(`answerBox${quizNum}`);
     
@@ -70,6 +70,7 @@ for (let i = 0; i < 10; i++) {
     if( num === 0 ){
       const el = document.createElement("h3");
       el.setAttribute("id", "answerBox");
+      el.classList.add('el');
       el.textContent = "正解!";
       answerDiv.appendChild(el);
       const ol = document.createElement("div");
