@@ -1,145 +1,273 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ガチで東京の人しか解けない！＃東京の難読地名クイズ</title>
-  <link rel="stylesheet" href="./normalize.css">
-  <link rel="stylesheet" href="./style.css">
-  <script src="./main.js" defer></script>
-</head>
-
-<body>
-  <div class="container">
-  <header>
-    <img src="https://www.edu.keio.jp/ess2/images/ess_title_03.png" alt="授業支援" class= "headerImg">
-    <a href="http://typingx0.net/sushida/play.html" class= "headerImg">寿司打</a>
-  </header>
-  <div id="question_area"></div>
-  </div>
-
-  <!-- <div class="container">
-
-    <div class="question-1">
-      <h1>1.この地名はなんと読む？</h1>
-      <div class="image-cntainer">
-        <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png" alt="takanawa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <title>Webapp</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="leftcontainer">
+          <img src="./img/posse.jpg" alt="posse" class="posse" />
+          <p class="first">1st week</p>
+        </div>
+        <button id="modal-open" class="kiroku">記録・投稿</button>
       </div>
-      <ul>
-        <li>たかなわ</li>
-        <li>こうわ</li>
-        <li>たかわ</li>
-      </ul>
-    </div>
-    <div class="question-1">
-      <h1>2.この地名はなんと読む？</h1>
-      <div class="image-cntainer">
-        <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/512b8146e7661821c45dbb8fefedf731.png" alt="kameido">
-        <ul>
-          <li id="answer-1">かめと</li>
-          <li>かめいど</li>
-          <li>かめど</li>
-        </ul>
-      </div>
-    </div>
-    <div class="question-1">
+    </header>
+    <div class="container">
+      <div class="left-container">
+        <div class="hour-container">
+          <div class="hourbox">
+            <div class="box">
+              <p class="top">Today</p>
+              <p class="number">0</p>
+              <p class="hour">hour</p>
+            </div>
+          </div>
+          <div class="hourbox">
+            <div class="box">
+              <p class="top">Month</p>
+              <p class="number">17</p>
+              <p class="hour">hour</p>
+            </div>
+          </div>
+          <div class="hourbox">
+            <div class="box">
+              <p class="top">Total</p>
+              <p class="number">19</p>
+              <p class="hour">hour</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
 
-      <h1>3.この地名はなんと読む？</h1>
-      <div class="image-cntainer">
-        <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/ad4f8badd896f1a9b527c530ebf8ac7f.png" alt="koujimati">
-        <ul>
-          <li>こうじまち</li>
-          <li>おかとまち</li>
-          <li>かゆまち</li>
-        </ul>
+          <div id="column" ></div>
+          <div id="column-2"></div>
+        </div>
       </div>
-    </div>
-    <div class="question-1">
-
-      <h1>4.この地名はなんと読む？</h1>
-      <div class="image-cntainer">
-        <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/ee645c9f43be1ab3992d121ee9e780fb.png" alt="onarimon">
-        <ul>
-          <li>おかどもん</li>
-          <li>おなりもん</li>
-          <li>ごせいもん</li>
-        </ul>
+      <div class="right-container">
+        
+        <div class="pie">
+          <div id="pie-1"></div>
+          <div id="pie-3"></div>
+  
+        </div>
+        <div class="pie">
+          <div id="pie-2"></div>
+          <div id="pie-4"></div>
+        </div>
       </div>
     </div>
-    <div class="question-1">
+    <div class="year-container">
+      <div class="year">2021年 7月</div>
+    </div>
+    <div class="yohaku"></div>
 
-      <h1>5.この地名はなんと読む？</h1>
-      <div class="image-cntainer">
-        <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/6a235aaa10f0bd3ca57871f76907797b.png" alt="todoroki">
-        <ul>
-          <li>とどりき</li>
-          <li>たたりき</li>
-          <li>たたら</li>
-        </ul>
+
+
+    <!-- ここからmodal -->
+
+    <div id="modal-overlay">
+      <div id="modal-content" class="modal-container">
+        <div class="modal-box">
+          <div class="left-modal">
+            <div class="study-day">
+              <label for="">学習日</label>
+              <div class="study-container">
+                <input type="text" class="study-box" id="study-box" />
+              </div>
+            </div>
+            <div class="study-content">
+              <h1>学習コンテンツ（複数選択可）</h1>
+              <div class="content-option">
+                <!-- <button class="option-btn">
+                  <section class="check">
+                    <div></div>
+                  </section>
+                  <p class="options">N予備校</p>
+                </button> -->
+                <input  class="visually-hidden" type="checkbox" name="fruits" id="nyobi"  />
+                <div class="content-options">
+
+                    <label for="nyobi">N予備校</label>
+
+                </div>
+                <!-- <li>ドットインストール</li> -->
+                <!-- <button class="option-btn">
+                  <section class="check">
+                    <div></div>
+                  </section>
+                  <p class="options">ドットインストール</p>
+                </button> -->
+                <input  class="visually-hidden" type="checkbox" name="fruits" id="dotinstall"  />
+                <div class="content-options">
+<label for="dotinstall">ドットインストール</label>
+                </div>
+                <!-- <li>POSSE課題</li> -->
+                <!-- <button class="option-btn">
+                  <section class="check">
+                    <div></div>
+                  </section>
+                  <p class="options">POSSE課題</p>
+                </button> -->
+                <input  class="visually-hidden" type="checkbox" name="fruits" id="POSSEkadai"  />
+                <div class="content-options">
+                <label for="POSSEkadai">POSSE課題</label>
+                </div>
+              </div>
+            </div>
+            <div class="study-language">
+              <h1>学習言語（複数選択可）</h1>
+              <div class="content-option">
+                <!-- <button class="option-btn">
+                  <section class="check">
+                    <div></div>
+                  </section>
+                  <p class="options">HTML</p>
+                </button> -->
+                <input  class="visually-hidden" type="checkbox" name="fruits" id="html"  />
+                <div class="content-options">
+<label for="html">HTML</label>
+                </div>
+                <!-- <button class="option-btn">
+                  <section class="check">
+                    <div></div>
+                  </section>
+                  <p class="options">CSS</p>
+                </button> -->
+                <input  class="visually-hidden" type="checkbox" name="fruits" id="css"  />
+                <div class="content-options">
+<label for="css">CSS</label>
+                </div>
+                <!-- <button class="option-btn">
+                  <section class="check">
+                    <div></div>
+                  </section>
+                  <p class="options">JavaScript</p>
+                </button> -->
+                <input  class="visually-hidden" type="checkbox" name="fruits" id="javascript"  />
+                <div class="content-options">
+<label for="javascript">JavaScript</label>
+                </div>
+                <!-- <button class="option-btn">
+                  <section class="check">
+                    <div></div>
+                  </section>
+                  <p class="options">PHP</p>
+                </button> -->
+                <input  class="visually-hidden" type="checkbox" name="fruits" id="php"  />
+                <div class="content-options">
+<label for="php">PHP</label>
+                </div>
+                <!-- <button class="option-btn">
+                  <section class="check">
+                    <div></div>
+                  </section>
+                  <p class="options">Laravel</p>
+                </button> -->
+                <input  class="visually-hidden" type="checkbox" name="fruits" id="laravel"  />
+                <div class="content-options">
+<label for="laravel">Laravel</label>
+                </div>
+                <!-- <button class="option-btn">
+                  <section class="check">
+                    <div></div>
+                  </section>
+                  <p class="options">SQL</p>
+                </button> -->
+                <input class="visually-hidden" type="checkbox" name="fruits" id="sql"  />
+                <div class="content-options">
+<label for="sql">SQL</label>
+                </div>
+                <!-- <button class="option-btn">
+                  <section class="check">
+                    <div></div>
+                  </section>
+                  <p class="options">SHELL</p>
+                </button> -->
+                <input  class="visually-hidden" type="checkbox" name="fruits" id="shell"  />
+                <div class="content-options">
+<label for="shell">SHELL</label>
+                </div>
+                <!-- <button class="option-btn">
+                  <section class="check">
+                    <div></div>
+                  </section>
+                  <p class="options">情報システム基礎知識(その他)</p>
+                </button> -->
+                <input  class="visually-hidden" type="checkbox" name="fruits" id="jyoho"  />
+                <div class="content-options">
+<label for="jyoho">情報システム基礎知識(その他)</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right-modal">
+            <div class="study-time">
+              <label for="">学習時間</label>
+              <div class="study-container">
+                <input type="text" class="study-box" />
+              </div>
+            </div>
+            <div class="twitter-comment">
+              <label for="">Twitter用コメント</label>
+              <div class="twitter-container">
+                <textarea class="twitter-box"></textarea>
+              </div>
+            </div>
+            <div class="twitter-share">
+              <section class="bigcheck" id="Bigcheck">
+                <div></div>
+              </section>
+              <li>Twitterにシェアする</li>
+            </div>
+          </div>
+        </div>
+        <div class="btn-container">
+          <button class="modal-btn" id="finish-btn">記録・投稿</button>
+        </div>
+        <button id="modal-close" class="close-btn">×</button>
       </div>
     </div>
-    <div class="question-1">
 
-      <h1>6.この地名はなんと読む？</h1>
-      <div class="image-cntainer">
-        <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/0b6789cf496fb75191edf1e3a6e05039.png" alt="shakuji">
-        <ul>
-          <li>いじい</li>
-          <li>せきこうい</li>
-          <li>しゃくじい</li>
-        </ul>
+    <!-- ここからloading画面 -->
+    <div id="loading-overlay">
+      <div id="loading-page">
+        <img src="./img/loading-img.png" alt="" class="loading-img , active-img" id="loading">
       </div>
     </div>
-    <div class="question-1">
 
-      <h1>7.この地名はなんと読む？</h1>
-      <div class="image-cntainer">
-        <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/23e698eec548ff20a4f7969ca8823c53.png" alt="zouiki">
-        <ul>
-          <li>ざっしょく</li>
-          <li>ざっしき</li>
-          <li>ぞうしき</li>
-        </ul>
-      </div>
-    </div>
-    <div class="question-1">
+    <!-- 完了画面 -->  
+    <div id="finish-overlay">
+      <div id="finish-page">
+        <div class="finish-container">
+          <div class="finish-content">
 
-      <h1>8.この地名はなんと読む？</h1>
-      <div class="image-cntainer">
-        <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/50a753d151d35f8602d2c3e2790ea6e4.png" alt="okatimati">
-        <ul>
-          <li>ごしろちょう</li>
-          <li>おかちまち</li>
-          <li>みとちょう</li>
-        </ul>
+            <section class="awesome">AWESOME!</section>
+            <section class="biggest-check">
+              <div></div>
+            </section>
+            <section class="finish-word">記録・投稿<br>完了しました</section>
+            <button id="finish-close" class="finish-close">×</button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="question-1">
 
-      <h1>9.この地名はなんと読む？</h1>
-      <div class="image-cntainer">
-        <img src="https://d1khcm40x1j0f.cloudfront.net/words/8cad76c39c43e2b651041c6d812ea26e.png" alt="sisibone">
-        <ul>
-          <li>ろっこつ</li>
-          <li>しこね</li>
-          <li>ししぼね</li>
-        </ul>
-      </div>
     </div>
-    <div class="question-1">
-      <h1>10.この地名はなんと読む？</h1>
-      <div class="image-cntainer">
-        <img src="https://d1khcm40x1j0f.cloudfront.net/words/34508ddb0789ee73471b9f17977e7c9c.png" alt="kogure">
-        <ul>
-          <li>こぐれ</li>
-          <li>こしゃく</li>
-          <li>こばく</li>
-        </ul>
-      </div>
-    </div>
-  </div> -->
-</body>
 
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
 </html>
