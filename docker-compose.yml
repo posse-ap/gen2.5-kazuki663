@@ -1,0 +1,30 @@
+version: "3"
+services:
+  web:
+    platform: linux/amd64
+    image: nginx:1.21.1
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    volumes:
+      - ./web/default.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/var/www/html
+  app:
+    platform: linux/amd64
+    build: ./app
+    depends_on:
+      - db
+    volumes:
+      - ./src:/var/www/html
+  db:
+    platform: linux/amd64
+    image: mysql:8.0.26
+    environment:
+      MYSQL_DATABASE: posse
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./mysql/sql:/docker-entrypoint-initdb.d
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    command: mysqld --innodb_use_native_aio=0
