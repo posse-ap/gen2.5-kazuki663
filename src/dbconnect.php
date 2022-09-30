@@ -1,5 +1,5 @@
 <?php
-$dsn = 'mysql:host=mysql;dbname=webapp;charset=utf8;';
+$dsn = 'mysql:host=db;dbname=webapp;charset=utf8;';
 $user = 'root';
 $password = 'password';
 

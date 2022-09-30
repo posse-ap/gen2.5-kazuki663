@@ -21,7 +21,7 @@ services:
     platform: linux/amd64
     image: mysql:8.0.26
     environment:
-      MYSQL_DATABASE: posse
+      MYSQL_DATABASE: webapp
       MYSQL_ROOT_PASSWORD: password
     volumes:
       - ./mysql/sql:/docker-entrypoint-initdb.d
