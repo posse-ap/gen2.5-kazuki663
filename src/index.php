@@ -1,7 +1,12 @@
 <?php
 require('./dbconnect.php');
-
 session_start();
+
+if(empty($_SESSION['user_id'])){
+  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/login.php");
+  exit();
+}
+
 $id = $_SESSION['user_id'];
 $users = $db->prepare("SELECT * FROM users WHERE id = ?");
 $users->execute(array($id));
@@ -27,7 +32,7 @@ $user = $users->fetch();
         </div>
         <div class="user_info">
           <p><?= $user['name'] ?></p>
-          <form action="" method="get">
+          <form action="./logout.php" method="get">
             <input type="submit" class="logout" name="btn_logout" value="ログアウト">
           </form>
         </div>
@@ -77,11 +82,10 @@ $user = $users->fetch();
           <div id="pie-4"></div>
         </div>
       </div>
+      <div class="year-container">
+        <div class="year">2021年 7月</div>
+      </div>
     </div>
-    <div class="year-container">
-      <div class="year">2021年 7月</div>
-    </div>
-    <div class="yohaku"></div>
 
 
 

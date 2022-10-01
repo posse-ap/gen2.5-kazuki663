@@ -1,6 +1,4 @@
 <?php
-function auth($now_path)
-{
     session_name("user");
     session_start();
     if (isset($_GET['btn_logout'])) {
@@ -12,4 +10,3 @@ function auth($now_path)
         header("Location: http://" . $_SERVER['HTTP_HOST'] . "/login.php");
         exit();
     }
-}
