@@ -16,7 +16,8 @@ if(!empty($_POST)) {
   ));
   $user = $login->fetch();
   if(password_verify($password, $user['password'])){
-    $_SESSION['user_id'] = $user['id']; 
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['time'] = time(); 
     header("Location: index.php");
     exit();
   }else{

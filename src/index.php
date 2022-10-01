@@ -1,5 +1,11 @@
 <?php
 require('./dbconnect.php');
+
+session_start();
+$id = $_SESSION['user_id'];
+$users = $db->prepare("SELECT * FROM users WHERE id = ?");
+$users->execute(array($id));
+$user = $users->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -18,6 +24,12 @@ require('./dbconnect.php');
         <div class="leftcontainer">
           <img src="./img/posse.jpg" alt="posse" class="posse" />
           <p class="first">1st week</p>
+        </div>
+        <div class="user_info">
+          <p><?= $user['name'] ?></p>
+          <form action="" method="get">
+            <input type="submit" class="logout" name="btn_logout" value="ログアウト">
+          </form>
         </div>
         <button id="modal-open" class="kiroku">記録・投稿</button>
       </div>
