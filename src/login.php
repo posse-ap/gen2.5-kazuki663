@@ -18,7 +18,7 @@ if(!empty($_POST)) {
   if(password_verify($password, $user['password'])){
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['time'] = time(); 
-    header("Location: index.php");
+    header("Location: top.php");
     exit();
   }else{
     $err_msg = "メールまたはパスワードが違います";
