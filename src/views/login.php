@@ -1,6 +1,7 @@
 <?php
-require("../models/dbconnect.php");
-require("../models/users.php");
+// require("../models/dbconnect.php");
+// require("../models/users.php");
+require("../vendor/autoload.php");
 
 session_name();
 session_start();
@@ -38,7 +39,7 @@ if(!empty($_POST)) {
 
 <body>
   <header class="h-16 flex justify-center">
-    <div class="flex justify-between items-center w-full h-full mx-auto pl-2 pr-5 max-w-2xl">
+    <div class="flex justify-between items-center w-full h-full mx-auto pl-2 pr-5 max-w-xl">
       <div class="h-full ml-5 flex items-center">
         <img src="../img/posse.jpg" alt="" class="h-2/3">
       </div>
@@ -46,7 +47,7 @@ if(!empty($_POST)) {
   </header>
 
   <main class="bg-gray-100 h-screen">
-    <div class="w-full mx-auto px-5 max-w-2xl relative pt-12">
+    <div class="w-full mx-auto px-5 max-w-xl relative pt-24">
       <h2 class="text-md font-bold mb-7">ログイン</h2>
       <form action="./login.php" method="POST">
         <input type="email" placeholder="メールアドレス" class="w-full p-4 text-sm mb-5" name="email">
@@ -56,7 +57,7 @@ if(!empty($_POST)) {
           echo $err_msg;
         }
         ?>
-        <input type="submit" value="ログイン" class="cursor-pointer w-full p-3 text-md text-white bg-blue-400 rounded-3xl bg-gradient-to-r from-blue-600 to-blue-300">
+        <input type="submit" value="ログイン" class="cursor-pointer w-4/5 mx-auto block p-3 text-md text-white bg-blue-400 rounded-3xl bg-gradient-to-r from-blue-600 to-blue-300">
       </form>
       <div class="text-center text-xs text-gray-400 mt-6">
         <a href="pasReset.php">パスワードを忘れた方はこちら</a>
