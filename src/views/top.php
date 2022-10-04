@@ -1,6 +1,7 @@
 <?php
 require('../models/dbconnect.php');
 require("../models/users.php");
+require("../models/study_time.php");
 
 session_start();
 
@@ -14,6 +15,22 @@ if(empty($_SESSION['user_id'])){
 $id = $_SESSION['user_id'];
 $condition = "id = ?";
 $user = userSearch($db, $condition, $id);
+
+//時間集計
+//今の時間取得
+// $today = date("Y-m-d");
+$today = "2022-08-05";
+// $month = date("Y-m");
+$month = "2022-08";
+//日
+$today_condition = "AND day LIKE '$today%'";
+$today_hour = TotalHour($db, $today_condition, $id);
+//月
+$month_condition = "AND day LIKE '$month%'";
+$month_hour = TotalHour($db, $month_condition, $id);
+//トータル
+$total_condition = "";
+$total_hour = TotalHour($db, $total_condition, $id);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -48,21 +65,46 @@ $user = userSearch($db, $condition, $id);
           <div class="hourbox">
             <div class="box">
               <p class="top">Today</p>
-              <p class="number">0</p>
+              <p class="number">
+                <?php
+                //合計が０だった時の場合分け
+                if(is_null($today_hour[0]["sum(time)"])){
+                  echo 0;
+                }else{
+                  echo $today_hour[0]["sum(time)"];
+                } 
+                ?>
+              </p>
               <p class="hour">hour</p>
             </div>
           </div>
           <div class="hourbox">
             <div class="box">
               <p class="top">Month</p>
-              <p class="number">17</p>
+              <p class="number">
+                <?php
+                if(is_null($month_hour[0]["sum(time)"])){
+                  echo 0;
+                }else{
+                  echo $month_hour[0]["sum(time)"];
+                }  
+                ?>
+              </p>
               <p class="hour">hour</p>
             </div>
           </div>
           <div class="hourbox">
             <div class="box">
               <p class="top">Total</p>
-              <p class="number">19</p>
+              <p class="number">
+                <?php
+                if(is_null($total_hour[0]["sum(time)"])){
+                  echo 0;
+                }else{
+                  echo $total_hour[0]["sum(time)"];
+                }  
+                ?>
+              </p>
               <p class="hour">hour</p>
             </div>
           </div>
