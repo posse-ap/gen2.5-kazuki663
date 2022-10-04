@@ -1,5 +1,6 @@
 <?php
 require("../models/dbconnect.php");
+require("../models/users.php");
 
 session_name();
 session_start();
@@ -10,13 +11,10 @@ if(!empty($_POST)) {
   $email = $_POST['email'];
   $password = $_POST['password'];
   if(!empty($email) && !empty($password)){
-  $login = $db->prepare('SELECT * FROM users WHERE email=?');
-  $login->execute(array(
-    $email
-  ));
-  $user = $login->fetch();
-  if(password_verify($password, $user['password'])){
-    $_SESSION['user_id'] = $user['id'];
+  $condition = 'email = ?';
+  $user = userSearch($db, $condition, $email);
+  if(password_verify($password, $user[0]['password'])){
+    $_SESSION['user_id'] = $user[0]['id'];
     $_SESSION['time'] = time(); 
     header("Location: top.php");
     exit();

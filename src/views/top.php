@@ -12,8 +12,8 @@ if(empty($_SESSION['user_id'])){
 
 //ユーザー検索
 $id = $_SESSION['user_id'];
-$condition = "id = $id";
-$user = userSearch($db, $condition);
+$condition = "id = ?";
+$user = userSearch($db, $condition, $id);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
