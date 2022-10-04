@@ -37,20 +37,20 @@ if(!empty($_POST)) {
 </head>
 
 <body>
-  <!-- <header class="h-16">
-    <div class="flex justify-between items-center w-full h-full mx-auto pl-2 pr-5">
-      <div class="h-full">
-        <img src="/img/header-logo.png" alt="" class="h-full">
+  <header class="h-16 flex justify-center">
+    <div class="flex justify-between items-center w-full h-full mx-auto pl-2 pr-5 max-w-2xl">
+      <div class="h-full ml-5 flex items-center">
+        <img src="../img/posse.jpg" alt="" class="h-2/3">
       </div>
     </div>
-  </header> -->
+  </header>
 
   <main class="bg-gray-100 h-screen">
-    <div class="w-full mx-auto py-10 px-5">
-      <h2 class="text-md font-bold mb-5">ログイン</h2>
+    <div class="w-full mx-auto px-5 max-w-2xl relative pt-12">
+      <h2 class="text-md font-bold mb-7">ログイン</h2>
       <form action="./login.php" method="POST">
-        <input type="email" placeholder="メールアドレス" class="w-full p-4 text-sm mb-3" name="email">
-        <input type="password" placeholder="パスワード" class="w-full p-4 text-sm mb-3" name="password">
+        <input type="email" placeholder="メールアドレス" class="w-full p-4 text-sm mb-5" name="email">
+        <input type="password" placeholder="パスワード" class="w-full p-4 text-sm mb-5" name="password">
         <?php
         if(!empty($err_msg)){
           echo $err_msg;
