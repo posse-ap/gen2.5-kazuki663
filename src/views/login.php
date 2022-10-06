@@ -1,7 +1,8 @@
 <?php
-// require("../models/dbconnect.php");
-// require("../models/users.php");
-require("../vendor/autoload.php");
+//modelsフォルダの中のfileをrequire
+foreach(glob("../models/*") as $filename) {
+  require($filename);
+}
 
 session_name();
 session_start();

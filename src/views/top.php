@@ -1,7 +1,8 @@
 <?php
-require('../models/dbconnect.php');
-require("../models/users.php");
-require("../models/study_time.php");
+//modelsフォルダの中のfileをrequire
+foreach(glob("../models/*") as $filename) {
+  require($filename);
+}
 
 session_start();
 
@@ -302,7 +303,7 @@ $total_hour = TotalHour($db, $total_condition, $id);
     <!-- ここからloading画面 -->
     <div id="loading-overlay">
       <div id="loading-page">
-        <img src="./img/loading-img.png" alt="" class="loading-img , active-img" id="loading">
+        <img src="../img/loading-img.png" alt="" class="loading-img , active-img" id="loading">
       </div>
     </div>
 
