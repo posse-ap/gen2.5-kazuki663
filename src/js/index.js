@@ -138,121 +138,115 @@ bigcheck.addEventListener('click', function () {
 // ここからグラフ
 
 function drawChart() {
-  let column = document.getElementById('column');
-  let data;
-  let options = {
-    width: 620,
-    height: 450,
-    colors: ['#0171b8'],
-    animation: {
-      startup: true,
-      duration: 400,
-      easing: 'inAndout',
-    },
-    enableInteractivity: false,
-    legend: 'none',
-    chartArea: {width: '80%', height: '60%'},
+  // let column = document.getElementById('column');
+  // let data;
+  // let options = {
+  //   width: 620,
+  //   height: 450,
+  //   colors: ['#0171b8'],
+  //   animation: {
+  //     startup: true,
+  //     duration: 400,
+  //     easing: 'inAndout',
+  //   },
+  //   enableInteractivity: false,
+  //   legend: 'none',
+  //   chartArea: {width: '80%', height: '60%'},
+  // };
+  // let chart = new google.visualization.ColumnChart(column);
+  // data = new google.visualization.arrayToDataTable([
+  //   ['day', 'time'],
+  //   [1, 3],
+  //   [2, 4],
+  //   [3, 5],
+  //   [4, 3],
+  //   [5, 0],
+  //   [6, 0],
+  //   [7, 4],
+  //   [8, 2],
+  //   [9, 2],
+  //   [10, 8],
+  //   [11, 8],
+  //   [12, 2],
+  //   [13, 2],
+  //   [14, 1],
+  //   [15, 7],
+  //   [16, 4],
+  //   [17, 4],
+  //   [18, 3],
+  //   [19, 3],
+  //   [20, 3],
+  //   [21, 2],
+  //   [22, 2],
+  //   [23, 6],
+  //   [24, 2],
+  //   [25, 2],
+  //   [26, 1],
+  //   [27, 1],
+  //   [28, 1],
+  //   [29, 7],
+  //   [30, 8]
+  // ]);
 
-  };
-  let chart = new google.visualization.ColumnChart(column);
-  // data = new google.visualization.Datatable();
-  // data.addColumn('number', 'day');
-  // data.addColumn('number', 'time');
-  // data.addRow();
-  data = new google.visualization.arrayToDataTable([
-    ['day', 'time'],
-    [1, 3],
-    [2, 4],
-    [3, 5],
-    [4, 3],
-    [5, 0],
-    [6, 0],
-    [7, 4],
-    [8, 2],
-    [9, 2],
-    [10, 8],
-    [11, 8],
-    [12, 2],
-    [13, 2],
-    [14, 1],
-    [15, 7],
-    [16, 4],
-    [17, 4],
-    [18, 3],
-    [19, 3],
-    [20, 3],
-    [21, 2],
-    [22, 2],
-    [23, 6],
-    [24, 2],
-    [25, 2],
-    [26, 1],
-    [27, 1],
-    [28, 1],
-    [29, 7],
-    [30, 8]
+  // chart.draw(data, options);
+
+  // let column2 = document.getElementById('column-2');
+  // let data4;
+  // let options4 = {
+  //   width: 305,
+  //   height: 140,
+  //   colors: ['#0171b8'],
+  //   animation: {
+  //     startup: true,
+  //     duration: 400,
+  //     easing: 'inAndout',
+  //   },
+  //   enableInteractivity: false,
+  //   legend: 'none',
+  //   chartArea: {width: '90%', height: '70%'},
+
+  // };
+  // let chart4 = new google.visualization.ColumnChart(column2);
+  // // data = new google.visualization.Datatable();
+  // // data.addColumn('number', 'day');
+  // // data.addColumn('number', 'time');
+  // // data.addRow();
+  // data4 = new google.visualization.arrayToDataTable([
+  //   ['day', 'time'],
+  //   [1, 3],
+  //   [2, 4],
+  //   [3, 5],
+  //   [4, 3],
+  //   [5, 0],
+  //   [6, 0],
+  //   [7, 4],
+  //   [8, 2],
+  //   [9, 2],
+  //   [10, 8],
+  //   [11, 8],
+  //   [12, 2],
+  //   [13, 2],
+  //   [14, 1],
+  //   [15, 7],
+  //   [16, 4],
+  //   [17, 4],
+  //   [18, 3],
+  //   [19, 3],
+  //   [20, 3],
+  //   [21, 2],
+  //   [22, 2],
+  //   [23, 6],
+  //   [24, 2],
+  //   [25, 2],
+  //   [26, 1],
+  //   [27, 1],
+  //   [28, 1],
+  //   [29, 7],
+  //   [30, 8],
       
-  ]);
+  // ]);
 
-  chart.draw(data, options);
-
-  let column2 = document.getElementById('column-2');
-  let data4;
-  let options4 = {
-    width: 305,
-    height: 140,
-    colors: ['#0171b8'],
-    animation: {
-      startup: true,
-      duration: 400,
-      easing: 'inAndout',
-    },
-    enableInteractivity: false,
-    legend: 'none',
-    chartArea: {width: '90%', height: '70%'},
-
-  };
-  let chart4 = new google.visualization.ColumnChart(column2);
-  // data = new google.visualization.Datatable();
-  // data.addColumn('number', 'day');
-  // data.addColumn('number', 'time');
-  // data.addRow();
-  data4 = new google.visualization.arrayToDataTable([
-    ['day', 'time'],
-    [1, 3],
-    [2, 4],
-    [3, 5],
-    [4, 3],
-    [5, 0],
-    [6, 0],
-    [7, 4],
-    [8, 2],
-    [9, 2],
-    [10, 8],
-    [11, 8],
-    [12, 2],
-    [13, 2],
-    [14, 1],
-    [15, 7],
-    [16, 4],
-    [17, 4],
-    [18, 3],
-    [19, 3],
-    [20, 3],
-    [21, 2],
-    [22, 2],
-    [23, 6],
-    [24, 2],
-    [25, 2],
-    [26, 1],
-    [27, 1],
-    [28, 1],
-    [29, 7],
-    [30, 8]
-      
-  ]);
-
-  chart4.draw(data4, options4);
+  // chart4.draw(data4, options4);
 
   let pie1 = document.getElementById('pie-1');
   let data2;

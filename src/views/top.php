@@ -32,6 +32,36 @@ $month_hour = TotalHour($db, $month_condition, $id);
 //トータル
 $total_condition = "";
 $total_hour = TotalHour($db, $total_condition, $id);
+
+//勉強時間算出(複数回のpostに対応済み)
+$time_condition = "AND day LIKE '$month%' GROUP BY day";
+$study_times = TimeResearch($db, $time_condition, $id);
+//月の日数取得
+$monthDay = intval(date('t', strtotime("$today")));
+//学習した日付の配列取得
+$study_day = array();
+//学習した日と時間の配列
+$study_data = array();
+foreach($study_times as $study_time){
+  $need_day = intval(date('j', strtotime($study_time['day'])));
+  array_push($study_day, $need_day);
+  $day_array = array(intval(date('j', strtotime($study_time['day']))), intval($study_time['sum(time)']));
+  $study_data = array_merge($study_data, array($day_array));
+}
+//棒グラフ用配列の作成
+for($i=1; $i<=$monthDay; $i++){
+  $key = in_array($i, $study_day);
+  if($key){
+  }else{
+    array_splice( $study_data, $i-1, 0, [[$i, 0]]);
+  }
+}
+//学習時間円グラフの色の配列作成
+$languages = languageResearch($db);
+$language_colors = array();
+foreach($languages as $language){
+  array_push($language_colors, $language['color']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -132,7 +162,6 @@ $total_hour = TotalHour($db, $total_condition, $id);
         <div class="year">2021年 7月</div>
       </div>
     </div>
-
 
 
     <!-- ここからmodal -->
@@ -334,5 +363,98 @@ $total_hour = TotalHour($db, $total_condition, $id);
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../js/index.js"></script>
+    <script>
+      function drawChart() {
+        //棒グラフ
+        let column = document.getElementById('column');
+        let data;
+        let options = {
+          width: 620,
+          height: 450,
+          colors: ['#0171b8'],
+          animation: {
+            startup: true,
+            duration: 400,
+            easing: 'inAndout',
+          },
+          enableInteractivity: false,
+          legend: 'none',
+          chartArea: {width: '80%', height: '60%'},
+        };
+        let stick_chart = new google.visualization.ColumnChart(column);
+        data = new google.visualization.arrayToDataTable([
+          ['day', 'time'],
+          <?php
+          foreach($study_data as $data){
+            echo "[$data[0], $data[1]],";
+          }
+          ?>
+        ]);
+        stick_chart.draw(data, options);
+
+        //棒グラフ（レスポンシブ時）
+        let column2 = document.getElementById('column-2');
+          let data_responsive;
+          let options_responsive = {
+          width: 305,
+          height: 140,
+          colors: ['#0171b8'],
+          animation: {
+            startup: true,
+            duration: 400,
+            easing: 'inAndout',
+          },
+          enableInteractivity: false,
+          legend: 'none',
+          chartArea: {width: '90%', height: '70%'},
+
+        };
+        let stick_chart_responsive = new google.visualization.ColumnChart(column2);
+        data_responsive = new google.visualization.arrayToDataTable([
+          ['day', 'time'],
+          <?php
+          foreach($study_data as $data){
+            echo "[$data[0], $data[1]],";
+          }
+          ?>
+        ]);
+        stick_chart_responsive.draw(data_responsive, options_responsive);
+
+        //学習言語円グラフ
+        let pie1 = document.getElementById('pie-1');
+          let pie_data;
+          let pie_options = {
+            width: 280,
+            height: 580,
+            title: '学習言語',
+            pieHole: 0.5,
+            colors: [<?php foreach($language_colors as $language_color){
+              echo "'$language_color', ";
+            } ?>],
+            legend: {position: 'bottom'},
+            chartArea: {width: '100%', height: '80%'},
+            enableInteractivity: false,
+            pieSliceTextStyle: {fontSize: 10},
+          };
+          let pie_chart = new google.visualization.PieChart(pie1);
+
+        pie_data = new google.visualization.arrayToDataTable([
+          ['学習言語', 'time'],
+          ['HTML', 30],
+          ['CSS', 20],
+          ['JavaScript', 10],
+          ['PHP', 5],
+          ['Laravel', 5],
+          ['SQL', 20],
+          ['SHELL]', 20],
+          ['その他', 10]
+        ]);
+
+        pie_chart.draw(pie_data, pie_options);
+      }
+
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+    </script>
   </body>
 </html>
