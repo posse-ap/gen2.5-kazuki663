@@ -248,32 +248,32 @@ function drawChart() {
 
   // chart4.draw(data4, options4);
 
-  let pie1 = document.getElementById('pie-1');
-  let data2;
-  let options2 = {
-    width: 280,
-    height: 580,
-    title: '学習言語',
-    pieHole: 0.5,
-    colors: ['#0042e5', '#0070b9', '#01bdda', '#02cdfa', '#b29dee', '#6c43e5', '#460ae8', '#460ae8'],
-    legend: {position: 'bottom'},
-    chartArea: {width: '100%', height: '80%'},
-    enableInteractivity: false,
-    pieSliceTextStyle: {fontSize: 10},
-  };
-  let chart2 = new google.visualization.PieChart(pie1);
+//   let pie1 = document.getElementById('pie-1');
+//   let data2;
+//   let options2 = {
+//     width: 280,
+//     height: 580,
+//     title: '学習言語',
+//     pieHole: 0.5,
+//     colors: ['#0042e5', '#0070b9', '#01bdda', '#02cdfa', '#b29dee', '#6c43e5', '#460ae8', '#460ae8'],
+//     legend: {position: 'bottom'},
+//     chartArea: {width: '100%', height: '80%'},
+//     enableInteractivity: false,
+//     pieSliceTextStyle: {fontSize: 10},
+//   };
+//   let chart2 = new google.visualization.PieChart(pie1);
 
-data2 = new google.visualization.arrayToDataTable([
-  ['学習言語', 'time'],
-  ['HTML', 30],
-  ['CSS', 20],
-  ['JavaScript', 10],
-  ['PHP', 5],
-  ['Laravel', 5],
-  ['SQL', 20],
-  ['SHELL]', 20],
-  ['その他', 10]
-]);
+// data2 = new google.visualization.arrayToDataTable([
+//   ['学習言語', 'time'],
+//   ['HTML', 30],
+//   ['CSS', 20],
+//   ['JavaScript', 10],
+//   ['PHP', 5],
+//   ['Laravel', 5],
+//   ['SQL', 20],
+//   ['SHELL]', 20],
+//   ['その他', 10]
+// ]);
 
 chart2.draw(data2, options2);
 
@@ -299,36 +299,36 @@ data3 = new google.visualization.arrayToDataTable([
   ['課題', 40],
 ]);
 
-chart3.draw(data3, options3);
+// chart3.draw(data3, options3);
 
-let pie3 = document.getElementById('pie-3');
-  let data5;
-  let options5 = {
-    width: 150,
-    height: 210,
-    title: '学習言語',
-    pieHole: 0.5,
-    colors: ['#0042e5', '#0070b9', '#01bdda', '#02cdfa', '#b29dee', '#6c43e5', '#460ae8', '#460ae8'],
-    legend: {position: 'bottom'},
-    chartArea: {width: '80%', height: '80%'},
-    enableInteractivity: false,
-    pieSliceTextStyle: {fontSize: 10},
-  };
-  let chart5 = new google.visualization.PieChart(pie3);
+// let pie3 = document.getElementById('pie-3');
+//   let data5;
+//   let options5 = {
+//     width: 150,
+//     height: 210,
+//     title: '学習言語',
+//     pieHole: 0.5,
+//     colors: ['#0042e5', '#0070b9', '#01bdda', '#02cdfa', '#b29dee', '#6c43e5', '#460ae8', '#460ae8'],
+//     legend: {position: 'bottom'},
+//     chartArea: {width: '80%', height: '80%'},
+//     enableInteractivity: false,
+//     pieSliceTextStyle: {fontSize: 10},
+//   };
+//   let chart5 = new google.visualization.PieChart(pie3);
 
-data5 = new google.visualization.arrayToDataTable([
-  ['学習言語', 'time'],
-  ['HTML', 30],
-  ['CSS', 20],
-  ['JavaScript', 10],
-  ['PHP', 5],
-  ['Laravel', 5],
-  ['SQL', 20],
-  ['SHELL]', 20],
-  ['その他', 10]
-]);
+// data5 = new google.visualization.arrayToDataTable([
+//   ['学習言語', 'time'],
+//   ['HTML', 30],
+//   ['CSS', 20],
+//   ['JavaScript', 10],
+//   ['PHP', 5],
+//   ['Laravel', 5],
+//   ['SQL', 20],
+//   ['SHELL]', 20],
+//   ['その他', 10]
+// ]);
 
-chart5.draw(data5, options5);
+// chart5.draw(data5, options5);
 
 let pie4 = document.getElementById('pie-4');
   let data6;

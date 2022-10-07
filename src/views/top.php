@@ -62,6 +62,15 @@ $language_colors = array();
 foreach($languages as $language){
   array_push($language_colors, $language['color']);
 }
+//学習時間円グラフ用の配列作成
+$language_condition = "AND day LIKE '$month%' GROUP BY language_id ORDER BY language_id ASC";
+$languages_data = languageTime($db, $language_condition, $id);
+$language_data = array();
+foreach($languages_data as $data){
+  $lang = $data['language'];
+  $language_array = array("$lang", $data['sum(time)']);
+  array_push($language_data, $language_array);
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -440,6 +449,33 @@ foreach($languages as $language){
 
         pie_data = new google.visualization.arrayToDataTable([
           ['学習言語', 'time'],
+          <?php
+          foreach($language_data as $data){
+            echo "['$data[0]', $data[1]],";
+          }
+          ?>
+        ]);
+
+        pie_chart.draw(pie_data, pie_options);
+
+        //学習言語円グラフ（レスポンシブ）
+        let pie3 = document.getElementById('pie-3');
+          let data5;
+          let options5 = {
+            width: 150,
+            height: 210,
+            title: '学習言語',
+            pieHole: 0.5,
+            colors: ['#0042e5', '#0070b9', '#01bdda', '#02cdfa', '#b29dee', '#6c43e5', '#460ae8', '#460ae8'],
+            legend: {position: 'bottom'},
+            chartArea: {width: '80%', height: '80%'},
+            enableInteractivity: false,
+            pieSliceTextStyle: {fontSize: 10},
+          };
+          let chart5 = new google.visualization.PieChart(pie3);
+
+        data5 = new google.visualization.arrayToDataTable([
+          ['学習言語', 'time'],
           ['HTML', 30],
           ['CSS', 20],
           ['JavaScript', 10],
@@ -450,7 +486,7 @@ foreach($languages as $language){
           ['その他', 10]
         ]);
 
-        pie_chart.draw(pie_data, pie_options);
+        chart5.draw(data5, options5);
       }
 
       google.charts.load('current', {packages: ['corechart']});
