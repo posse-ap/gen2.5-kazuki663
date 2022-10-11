@@ -275,29 +275,29 @@ function drawChart() {
 //   ['その他', 10]
 // ]);
 
-chart2.draw(data2, options2);
+// chart2.draw(data2, options2);
 
-let pie2 = document.getElementById('pie-2');
-  let data3;
-  let options3 = {
-    width: 280,
-    height: 580,
-    title: '学習コンテンツ',
-    pieHole: 0.5,
-    colors: ['#0070b9', '#0042e5', '#01bddb'],
-    legend: {position: 'bottom'},
-    chartArea: {width: '100%', height: '80%'},
-    enableInteractivity: false,
-    pieSliceTextStyle: {fontSize: 10},
-  };
-  let chart3 = new google.visualization.PieChart(pie2);
+// let pie2 = document.getElementById('pie-2');
+//   let data3;
+//   let options3 = {
+//     width: 280,
+//     height: 580,
+//     title: '学習コンテンツ',
+//     pieHole: 0.5,
+//     colors: ['#0070b9', '#0042e5', '#01bddb'],
+//     legend: {position: 'bottom'},
+//     chartArea: {width: '100%', height: '80%'},
+//     enableInteractivity: false,
+//     pieSliceTextStyle: {fontSize: 10},
+//   };
+//   let chart3 = new google.visualization.PieChart(pie2);
 
-data3 = new google.visualization.arrayToDataTable([
-  ['学習コンテンツ', 'time'],
-  ['N予備校', 40],
-  ['ドットインストール', 20],
-  ['課題', 40],
-]);
+// data3 = new google.visualization.arrayToDataTable([
+//   ['学習コンテンツ', 'time'],
+//   ['N予備校', 40],
+//   ['ドットインストール', 20],
+//   ['課題', 40],
+// ]);
 
 // chart3.draw(data3, options3);
 

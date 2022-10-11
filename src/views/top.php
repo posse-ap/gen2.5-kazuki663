@@ -71,6 +71,21 @@ foreach($languages_data as $data){
   $language_array = array("$lang", $data['sum(time)']);
   array_push($language_data, $language_array);
 }
+//学習コンテンツ円グラフの色の配列作成
+$contents = contentsResearch($db);
+$contents_colors = array();
+foreach($contents as $content){
+  array_push($contents_colors, $content['color']);
+}
+//学習コンテンツ円グラフ用の配列作成
+$contents_condition = "AND day LIKE '$month%' GROUP BY content_id ORDER BY content_id ASC";
+$contents_data = contentsTime($db, $contents_condition, $id);
+$content_data = array();
+foreach($contents_data as $data){
+  $content = $data['content'];
+  $content_array = array("$content", $data['sum(time)']);
+  array_push($content_data, $content_array);
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -459,34 +474,90 @@ foreach($languages_data as $data){
         pie_chart.draw(pie_data, pie_options);
 
         //学習言語円グラフ（レスポンシブ）
-        let pie3 = document.getElementById('pie-3');
-          let data5;
-          let options5 = {
+        let pie_responsive = document.getElementById('pie-3');
+          let pie_data_responsive;
+          let pie_options_responsive = {
             width: 150,
             height: 210,
             title: '学習言語',
             pieHole: 0.5,
-            colors: ['#0042e5', '#0070b9', '#01bdda', '#02cdfa', '#b29dee', '#6c43e5', '#460ae8', '#460ae8'],
+            colors: [<?php foreach($language_colors as $language_color){
+              echo "'$language_color', ";
+            } ?>],
             legend: {position: 'bottom'},
             chartArea: {width: '80%', height: '80%'},
             enableInteractivity: false,
             pieSliceTextStyle: {fontSize: 10},
           };
-          let chart5 = new google.visualization.PieChart(pie3);
+          let pie_chart_responsive = new google.visualization.PieChart(pie_responsive);
 
-        data5 = new google.visualization.arrayToDataTable([
+        pie_data_responsive = new google.visualization.arrayToDataTable([
           ['学習言語', 'time'],
-          ['HTML', 30],
-          ['CSS', 20],
-          ['JavaScript', 10],
-          ['PHP', 5],
-          ['Laravel', 5],
-          ['SQL', 20],
-          ['SHELL]', 20],
-          ['その他', 10]
+          <?php
+          foreach($language_data as $data){
+            echo "['$data[0]', $data[1]],";
+          }
+          ?>
         ]);
 
-        chart5.draw(data5, options5);
+        pie_chart_responsive.draw(pie_data_responsive, pie_options_responsive);
+
+        //学習コンテンツ円グラフ
+        let content_pie = document.getElementById('pie-2');
+          let content_data;
+          let content_options = {
+            width: 280,
+            height: 580,
+            title: '学習コンテンツ',
+            pieHole: 0.5,
+            colors: [<?php foreach($contents_colors as $contents_color){
+              echo "'$contents_color', ";
+            } ?>],
+            legend: {position: 'bottom'},
+            chartArea: {width: '100%', height: '80%'},
+            enableInteractivity: false,
+            pieSliceTextStyle: {fontSize: 10},
+          };
+          let content_chart = new google.visualization.PieChart(content_pie);
+
+        content_data = new google.visualization.arrayToDataTable([
+          ['学習コンテンツ', 'time'],
+          <?php
+          foreach($content_data as $data){
+            echo "['$data[0]', $data[1]],";
+          }
+          ?>
+        ]);
+        content_chart.draw(content_data, content_options);
+
+        //学習コンテンツ円グラフ（レスポンシブ）
+        let content_pie_responsive = document.getElementById('pie-4');
+          let content_data_responsive;
+          let content_options_responsive = {
+            width: 150,
+            height: 210,
+            title: '学習コンテンツ',
+            pieHole: 0.5,
+            colors: [<?php foreach($contents_colors as $contents_color){
+              echo "'$contents_color', ";
+            } ?>],
+            legend: {position: 'bottom'},
+            chartArea: {width: '80%', height: '80%'},
+            enableInteractivity: false,
+            pieSliceTextStyle: {fontSize: 10},
+          };
+          let content_chart_responsive = new google.visualization.PieChart(content_pie_responsive);
+
+        content_data_responsive = new google.visualization.arrayToDataTable([
+          ['学習コンテンツ', 'time'],
+          <?php
+          foreach($content_data as $data){
+            echo "['$data[0]', $data[1]],";
+          }
+          ?>
+        ]);
+
+        content_chart_responsive.draw(content_data_responsive, content_options_responsive);
       }
 
       google.charts.load('current', {packages: ['corechart']});
