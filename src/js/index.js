@@ -138,203 +138,197 @@ bigcheck.addEventListener('click', function () {
 // ここからグラフ
 
 function drawChart() {
-  let column = document.getElementById('column');
-  let data;
-  let options = {
-    width: 620,
-    height: 450,
-    colors: ['#0171b8'],
-    animation: {
-      startup: true,
-      duration: 400,
-      easing: 'inAndout',
-    },
-    enableInteractivity: false,
-    legend: 'none',
-    chartArea: {width: '80%', height: '60%'},
+  // let column = document.getElementById('column');
+  // let data;
+  // let options = {
+  //   width: 620,
+  //   height: 450,
+  //   colors: ['#0171b8'],
+  //   animation: {
+  //     startup: true,
+  //     duration: 400,
+  //     easing: 'inAndout',
+  //   },
+  //   enableInteractivity: false,
+  //   legend: 'none',
+  //   chartArea: {width: '80%', height: '60%'},
+  // };
+  // let chart = new google.visualization.ColumnChart(column);
+  // data = new google.visualization.arrayToDataTable([
+  //   ['day', 'time'],
+  //   [1, 3],
+  //   [2, 4],
+  //   [3, 5],
+  //   [4, 3],
+  //   [5, 0],
+  //   [6, 0],
+  //   [7, 4],
+  //   [8, 2],
+  //   [9, 2],
+  //   [10, 8],
+  //   [11, 8],
+  //   [12, 2],
+  //   [13, 2],
+  //   [14, 1],
+  //   [15, 7],
+  //   [16, 4],
+  //   [17, 4],
+  //   [18, 3],
+  //   [19, 3],
+  //   [20, 3],
+  //   [21, 2],
+  //   [22, 2],
+  //   [23, 6],
+  //   [24, 2],
+  //   [25, 2],
+  //   [26, 1],
+  //   [27, 1],
+  //   [28, 1],
+  //   [29, 7],
+  //   [30, 8]
+  // ]);
 
-  };
-  let chart = new google.visualization.ColumnChart(column);
-  // data = new google.visualization.Datatable();
-  // data.addColumn('number', 'day');
-  // data.addColumn('number', 'time');
-  // data.addRow();
-  data = new google.visualization.arrayToDataTable([
-    ['day', 'time'],
-    [1, 3],
-    [2, 4],
-    [3, 5],
-    [4, 3],
-    [5, 0],
-    [6, 0],
-    [7, 4],
-    [8, 2],
-    [9, 2],
-    [10, 8],
-    [11, 8],
-    [12, 2],
-    [13, 2],
-    [14, 1],
-    [15, 7],
-    [16, 4],
-    [17, 4],
-    [18, 3],
-    [19, 3],
-    [20, 3],
-    [21, 2],
-    [22, 2],
-    [23, 6],
-    [24, 2],
-    [25, 2],
-    [26, 1],
-    [27, 1],
-    [28, 1],
-    [29, 7],
-    [30, 8]
+  // chart.draw(data, options);
+
+  // let column2 = document.getElementById('column-2');
+  // let data4;
+  // let options4 = {
+  //   width: 305,
+  //   height: 140,
+  //   colors: ['#0171b8'],
+  //   animation: {
+  //     startup: true,
+  //     duration: 400,
+  //     easing: 'inAndout',
+  //   },
+  //   enableInteractivity: false,
+  //   legend: 'none',
+  //   chartArea: {width: '90%', height: '70%'},
+
+  // };
+  // let chart4 = new google.visualization.ColumnChart(column2);
+  // // data = new google.visualization.Datatable();
+  // // data.addColumn('number', 'day');
+  // // data.addColumn('number', 'time');
+  // // data.addRow();
+  // data4 = new google.visualization.arrayToDataTable([
+  //   ['day', 'time'],
+  //   [1, 3],
+  //   [2, 4],
+  //   [3, 5],
+  //   [4, 3],
+  //   [5, 0],
+  //   [6, 0],
+  //   [7, 4],
+  //   [8, 2],
+  //   [9, 2],
+  //   [10, 8],
+  //   [11, 8],
+  //   [12, 2],
+  //   [13, 2],
+  //   [14, 1],
+  //   [15, 7],
+  //   [16, 4],
+  //   [17, 4],
+  //   [18, 3],
+  //   [19, 3],
+  //   [20, 3],
+  //   [21, 2],
+  //   [22, 2],
+  //   [23, 6],
+  //   [24, 2],
+  //   [25, 2],
+  //   [26, 1],
+  //   [27, 1],
+  //   [28, 1],
+  //   [29, 7],
+  //   [30, 8],
       
-  ]);
+  // ]);
 
-  chart.draw(data, options);
+  // chart4.draw(data4, options4);
 
-  let column2 = document.getElementById('column-2');
-  let data4;
-  let options4 = {
-    width: 305,
-    height: 140,
-    colors: ['#0171b8'],
-    animation: {
-      startup: true,
-      duration: 400,
-      easing: 'inAndout',
-    },
-    enableInteractivity: false,
-    legend: 'none',
-    chartArea: {width: '90%', height: '70%'},
+//   let pie1 = document.getElementById('pie-1');
+//   let data2;
+//   let options2 = {
+//     width: 280,
+//     height: 580,
+//     title: '学習言語',
+//     pieHole: 0.5,
+//     colors: ['#0042e5', '#0070b9', '#01bdda', '#02cdfa', '#b29dee', '#6c43e5', '#460ae8', '#460ae8'],
+//     legend: {position: 'bottom'},
+//     chartArea: {width: '100%', height: '80%'},
+//     enableInteractivity: false,
+//     pieSliceTextStyle: {fontSize: 10},
+//   };
+//   let chart2 = new google.visualization.PieChart(pie1);
 
-  };
-  let chart4 = new google.visualization.ColumnChart(column2);
-  // data = new google.visualization.Datatable();
-  // data.addColumn('number', 'day');
-  // data.addColumn('number', 'time');
-  // data.addRow();
-  data4 = new google.visualization.arrayToDataTable([
-    ['day', 'time'],
-    [1, 3],
-    [2, 4],
-    [3, 5],
-    [4, 3],
-    [5, 0],
-    [6, 0],
-    [7, 4],
-    [8, 2],
-    [9, 2],
-    [10, 8],
-    [11, 8],
-    [12, 2],
-    [13, 2],
-    [14, 1],
-    [15, 7],
-    [16, 4],
-    [17, 4],
-    [18, 3],
-    [19, 3],
-    [20, 3],
-    [21, 2],
-    [22, 2],
-    [23, 6],
-    [24, 2],
-    [25, 2],
-    [26, 1],
-    [27, 1],
-    [28, 1],
-    [29, 7],
-    [30, 8]
-      
-  ]);
+// data2 = new google.visualization.arrayToDataTable([
+//   ['学習言語', 'time'],
+//   ['HTML', 30],
+//   ['CSS', 20],
+//   ['JavaScript', 10],
+//   ['PHP', 5],
+//   ['Laravel', 5],
+//   ['SQL', 20],
+//   ['SHELL]', 20],
+//   ['その他', 10]
+// ]);
 
-  chart4.draw(data4, options4);
+// chart2.draw(data2, options2);
 
-  let pie1 = document.getElementById('pie-1');
-  let data2;
-  let options2 = {
-    width: 280,
-    height: 580,
-    title: '学習言語',
-    pieHole: 0.5,
-    colors: ['#0042e5', '#0070b9', '#01bdda', '#02cdfa', '#b29dee', '#6c43e5', '#460ae8', '#460ae8'],
-    legend: {position: 'bottom'},
-    chartArea: {width: '100%', height: '80%'},
-    enableInteractivity: false,
-    pieSliceTextStyle: {fontSize: 10},
-  };
-  let chart2 = new google.visualization.PieChart(pie1);
+// let pie2 = document.getElementById('pie-2');
+//   let data3;
+//   let options3 = {
+//     width: 280,
+//     height: 580,
+//     title: '学習コンテンツ',
+//     pieHole: 0.5,
+//     colors: ['#0070b9', '#0042e5', '#01bddb'],
+//     legend: {position: 'bottom'},
+//     chartArea: {width: '100%', height: '80%'},
+//     enableInteractivity: false,
+//     pieSliceTextStyle: {fontSize: 10},
+//   };
+//   let chart3 = new google.visualization.PieChart(pie2);
 
-data2 = new google.visualization.arrayToDataTable([
-  ['学習言語', 'time'],
-  ['HTML', 30],
-  ['CSS', 20],
-  ['JavaScript', 10],
-  ['PHP', 5],
-  ['Laravel', 5],
-  ['SQL', 20],
-  ['SHELL]', 20],
-  ['その他', 10]
-]);
+// data3 = new google.visualization.arrayToDataTable([
+//   ['学習コンテンツ', 'time'],
+//   ['N予備校', 40],
+//   ['ドットインストール', 20],
+//   ['課題', 40],
+// ]);
 
-chart2.draw(data2, options2);
+// chart3.draw(data3, options3);
 
-let pie2 = document.getElementById('pie-2');
-  let data3;
-  let options3 = {
-    width: 280,
-    height: 580,
-    title: '学習コンテンツ',
-    pieHole: 0.5,
-    colors: ['#0070b9', '#0042e5', '#01bddb'],
-    legend: {position: 'bottom'},
-    chartArea: {width: '100%', height: '80%'},
-    enableInteractivity: false,
-    pieSliceTextStyle: {fontSize: 10},
-  };
-  let chart3 = new google.visualization.PieChart(pie2);
+// let pie3 = document.getElementById('pie-3');
+//   let data5;
+//   let options5 = {
+//     width: 150,
+//     height: 210,
+//     title: '学習言語',
+//     pieHole: 0.5,
+//     colors: ['#0042e5', '#0070b9', '#01bdda', '#02cdfa', '#b29dee', '#6c43e5', '#460ae8', '#460ae8'],
+//     legend: {position: 'bottom'},
+//     chartArea: {width: '80%', height: '80%'},
+//     enableInteractivity: false,
+//     pieSliceTextStyle: {fontSize: 10},
+//   };
+//   let chart5 = new google.visualization.PieChart(pie3);
 
-data3 = new google.visualization.arrayToDataTable([
-  ['学習コンテンツ', 'time'],
-  ['N予備校', 40],
-  ['ドットインストール', 20],
-  ['課題', 40],
-]);
+// data5 = new google.visualization.arrayToDataTable([
+//   ['学習言語', 'time'],
+//   ['HTML', 30],
+//   ['CSS', 20],
+//   ['JavaScript', 10],
+//   ['PHP', 5],
+//   ['Laravel', 5],
+//   ['SQL', 20],
+//   ['SHELL]', 20],
+//   ['その他', 10]
+// ]);
 
-chart3.draw(data3, options3);
-
-let pie3 = document.getElementById('pie-3');
-  let data5;
-  let options5 = {
-    width: 150,
-    height: 210,
-    title: '学習言語',
-    pieHole: 0.5,
-    colors: ['#0042e5', '#0070b9', '#01bdda', '#02cdfa', '#b29dee', '#6c43e5', '#460ae8', '#460ae8'],
-    legend: {position: 'bottom'},
-    chartArea: {width: '80%', height: '80%'},
-    enableInteractivity: false,
-    pieSliceTextStyle: {fontSize: 10},
-  };
-  let chart5 = new google.visualization.PieChart(pie3);
-
-data5 = new google.visualization.arrayToDataTable([
-  ['学習言語', 'time'],
-  ['HTML', 30],
-  ['CSS', 20],
-  ['JavaScript', 10],
-  ['PHP', 5],
-  ['Laravel', 5],
-  ['SQL', 20],
-  ['SHELL]', 20],
-  ['その他', 10]
-]);
-
-chart5.draw(data5, options5);
+// chart5.draw(data5, options5);
 
 let pie4 = document.getElementById('pie-4');
   let data6;
