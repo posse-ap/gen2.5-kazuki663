@@ -207,38 +207,46 @@ header{
   /* width: 100%; */
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
 }
 
-.year::before {
-  /* くの字の表示設定 */
-  content: "";
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 2px;
-  width: 4px; /* くの字を山なりに見た時、左側の長さ */
-  height: 4px; /* くの字を山なりに見た時、右側の長さ */
-  border-top: 2px solid #000; /* くの字を山なりに見た時、左側の太さと色 */
-  border-right: 2px solid #000; /* くの字を山なりに見た時、右側の太さと色 */
-  transform: rotate(225deg); /* くの字の向き */
+.year_before{
+  padding: 30px 0;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
 }
 
-.year::after {
+/* .year::before { */
   /* くの字の表示設定 */
-  content: "";
+  /* content: ""; */
+  /* margin: auto; */
+  /* position: absolute; */
+  /* top: 0; */
+  /* bottom: 0; */
+  /* left: 2px; */
+  /* width: 4px; くの字を山なりに見た時、左側の長さ */
+  /* height: 4px; くの字を山なりに見た時、右側の長さ */
+  /* border-top: 2px solid #000; くの字を山なりに見た時、左側の太さと色 */
+  /* border-right: 2px solid #000; くの字を山なりに見た時、右側の太さと色 */
+  /* transform: rotate(225deg); くの字の向き */
+/* } */
+
+/* .year::after { */
+  /* くの字の表示設定 */
+  /* content: "";
   margin: auto;
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 2px;
-  width: 4px; /* くの字を山なりに見た時、左側の長さ */
-  height: 4px; /* くの字を山なりに見た時、右側の長さ */
-  border-top: 2px solid #000; /* くの字を山なりに見た時、左側の太さと色 */
-  border-right: 2px solid #000; /* くの字を山なりに見た時、右側の太さと色 */
-  transform: rotate(45deg); /* くの字の向き */
-}
+  right: 2px; */
+  /* width: 4px; くの字を山なりに見た時、左側の長さ */
+  /* height: 4px; くの字を山なりに見た時、右側の長さ */
+  /* border-top: 2px solid #000; くの字を山なりに見た時、左側の太さと色 */
+  /* border-right: 2px solid #000; くの字を山なりに見た時、右側の太さと色 */
+  /* transform: rotate(45deg); くの字の向き */
+/* } */
 
 /* ここからmodal */
 
@@ -568,6 +576,7 @@ input:checked + .on-content-options label::before {
 .btn-container {
   display: flex;
   justify-content: center;
+  border-radius: 35px;
 }
 
 .modal-btn {
@@ -579,6 +588,7 @@ input:checked + .on-content-options label::before {
   border-radius: 35px;
   background: linear-gradient(to right, #1070ba, #3bceff);
   box-shadow: 0px 6px 12px 6px #abe9ff;
+  overflow: hidden;
 }
 
 .close-btn {

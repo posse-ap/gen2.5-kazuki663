@@ -17,3 +17,29 @@ function contentsTime($db, $condition, $id) {
   return $output;
 }
 
+//挿入
+function InsertContent($db, $user_id, $content_id, $time, $day) {
+  $result = False;
+    try{
+    $stmt = $db->prepare(
+        "INSERT INTO
+    `study_contents` (
+    `user_id`,
+    `content_id`,
+    `time`,
+    `day`
+    )
+    VALUES(?,?,?,?)");
+
+    $stmt->bindValue(1,$user_id, PDO::PARAM_STR);
+    $stmt->bindValue(2,$content_id, PDO::PARAM_STR);
+    $stmt->bindValue(3,$time, PDO::PARAM_STR);
+    $stmt->bindValue(4,$day, PDO::PARAM_STR);
+    $stmt->execute();
+    }catch(\Exception $e){
+        echo $e->getMessage();
+        return $result;
+        //ここでエラーページに飛ばしたい
+        //→その際にもどるボタンで、前いたページに遷移させる
+    }
+}
