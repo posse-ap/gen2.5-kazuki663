@@ -191,7 +191,7 @@ foreach ($contents_data as $data) {
       </div>
       <div class="column">
 
-        <div id="column"></div>
+        <div id="column" style="width: 90%;"></div>
         <div id="column-2"></div>
       </div>
     </div>
@@ -330,7 +330,7 @@ foreach ($contents_data as $data) {
       let column = document.getElementById('column');
       let data;
       let options = {
-        width: 620,
+        width: 580,
         height: 450,
         colors: ['#0171b8'],
         animation: {
